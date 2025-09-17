@@ -1,24 +1,25 @@
-# daily_reminder.py
+# control-flow/daily_reminder.py
 
-# Ask the user for task details
+# Ask user for task details
 task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ").lower()
 time_bound = input("Is it time-bound? (yes/no): ").lower()
+priority = input("Enter priority (high/medium/low): ").lower()
 
-# Match Case for priority
+# Start building the reminder message
+reminder = f"Reminder: {task} [Priority: {priority}]"
+
+# Add time-bound info
+if time_bound == "yes":
+    reminder += " - Immediate action required!"
+
+# Customize based on priority using match-case
 match priority:
     case "high":
-        message = f"Reminder: '{task}' is a high priority task"
+        reminder += " ⚠️ High priority!"
     case "medium":
-        message = f"Note: '{task}' is a medium priority task"
+        reminder += " 🔔 Medium priority."
     case "low":
-        message = f"Note: '{task}' is a low priority task"
-    case _:
-        message = f"'{task}' has an unknown priority level"
-
-# Check if time-sensitive
-if time_bound == "yes":
-    message += " that requires immediate attention today!"
+        reminder += " ✅ Low priority, no rush."
 
 # Print the final reminder
-print(message)
+print(reminder)
