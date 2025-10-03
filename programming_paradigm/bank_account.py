@@ -1,19 +1,20 @@
-class BankAccount:
-    def __init__(self, initial_balance: float = 0.0):
-        """Initialize the bank account with an optional initial balance (default 0)."""
-        self.account_balance = initial_balance
+# bank_account.py
 
-    def deposit(self, amount: float) -> None:
-        """Deposit money into the account."""
+class BankAccount:
+    def __init__(self, initial_balance=0.0):
+        self.account_balance = float(initial_balance)
+
+    def deposit(self, amount):
+        """Add money to the account"""
         self.account_balance += amount
 
-    def withdraw(self, amount: float) -> bool:
-        """Withdraw money if funds are sufficient. Return True if successful, False otherwise."""
+    def withdraw(self, amount):
+        """Withdraw money if funds are available"""
         if amount <= self.account_balance:
             self.account_balance -= amount
             return True
         return False
-    
-def display_balance(self):
-    """Display the current balance with 2 decimal places."""
-    print(f"Current Balance: ${self.account_balance:.2f}")
+
+    def display_balance(self):
+        """Print the current balance formatted to 2 decimal places"""
+        print(f"Current Balance: ${self.account_balance:.2f}")
