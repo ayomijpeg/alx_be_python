@@ -13,7 +13,7 @@ class BankAccount:
             self.account_balance -= amount
             return True
         return False
-
-    def display_balance(self) -> None:
-        """Print the current balance in a user-friendly format."""
-        print(f"Current Balance: ${self.account_balance}")
+    
+def display_balance(self):
+    """Display the current balance with 2 decimal places."""
+    print(f"Current Balance: ${self.account_balance:.2f}")
